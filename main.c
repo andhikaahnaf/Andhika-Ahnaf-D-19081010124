@@ -1,26 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main( void ) 
-{
-	char nama[30], hobi[30], status[30], jurusan[30], umur[30], asal[30];
+struct Data_Mahasiswa{
+	char nama[30];
 	int npm;
-	
-	printf("  Masukkan Data Diri \n");
-	printf("  Nama\t\t: ");
-	gets(nama);
-	printf("  NPM\t\t: ");
-	scanf("%s",&npm);
-	printf("  Umur\t\t: ");
-	scanf("%s",&umur);
-	printf("  Jurusan\t: ");
-	scanf("%s",&jurusan);
-	printf("  Asal\t\t: ");
-	scanf("%s",&asal);
-	printf("  Hobi\t\t: ");
-	scanf("%s",&hobi);
+};
+typedef struct Data_Mahasiswa Data_Mahasiswa;
 
+int main() {
+	int a,b;
+	Data_Mahasiswa list[a];
+
+	printf("  Masukkan Banyak Data : ");
+	scanf(" %d",&a);
+
+	for(b=0;b<a;b++){
+		printf("\n  Data ke - %d\n",b+1);
+		printf("\t- Nama : ");
+		scanf(" %[^\n]s",&list[b].nama);
+		printf("\t- NPM : ");
+		scanf("%d",&list[b].npm);		
+	}
+
+		printf("\n  Data yang berhasil diinput \n");
+
+	for(b=0;b<a;b++){
+		printf("  %d. %s\t = %d\t \n",b+1,list[b].nama,list[b].npm);
+	}
 	return 0;
 }
